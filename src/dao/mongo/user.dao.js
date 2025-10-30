@@ -21,8 +21,14 @@ export class UserDAO {                                     // Se define una clas
       { password: newHashedPassword }                      // Nuevo valor de la contraseña (ya encriptada)
     );                                                     // Devuelve información del resultado de la operación (nº de documentos modificados)
   }
+  
+async getById (id) {
+  return await User.findById (id)
+}
 
   async deleteById(id) {                                   // Método para eliminar un usuario por ID
     return await User.findByIdAndDelete(id);               // Borra el documento y devuelve el usuario eliminado o null si no existía
   }
+
+
 }
